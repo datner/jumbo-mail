@@ -1,0 +1,32 @@
+@import "../../utils/helpers.scss";
+
+nav {
+  background: skyblue;
+  .header {
+    @include flex-vertical-center;
+    //   padding: 12px 24px;
+    display: flex;
+    height: 100px;
+    justify-content: center;
+    margin: 0 auto;
+    max-width: 1000px;
+
+    .spacer {
+      flex-grow: 1;
+    }
+
+    .links {
+      display: flex;
+      div {
+        text-align: center;
+        padding: 12px 24px;
+        line-height: 75px;
+        min-width: 70px;
+        &:hover {
+          background: rgba(0, 0, 0, 0.1);
+          cursor: pointer;
+        }
+      }
+    }
+  }
+}
