@@ -7,18 +7,20 @@ import languageFactory, { languages } from "./languageFactory";
  */
 const initialState = () => {
   const lang = localStorage.getItem("lang");
-  if (languages.includes(lang)) return { lang };
-  return { lang: languages[0] };
+  const state = {
+    direction: lang === "he" ? "rtl" : "ltr",
+    lang: languages.includes(lang) ? lang : languages[0]
+  };
+  return state;
 };
 
-const [LanguageProvider, useLanguage, withLanguage] = useStore(languageFactory, initialState);
+const [LanguageProvider, useLanguage, withLanguage] = useStore(
+  languageFactory,
+  initialState
+);
 
 export const languageInitState = initialState();
 
-export {
-  useLanguage,
-  LanguageProvider,
-  withLanguage,
-};
+export { useLanguage, LanguageProvider, withLanguage };
 
 export default LanguageProvider;

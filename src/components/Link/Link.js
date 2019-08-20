@@ -1,14 +1,19 @@
 import React from "react";
-import { Link as L } from "react-router-dom";
+import classNames from "classnames";
+import { Link as L, NavLink as NL } from "react-router-dom";
 import { useLanguage } from "contexts/languageContext";
 
 import "./Link.scss";
 
-const Link = props => {
+const makeLink = Component => props => {
   const { getPath } = useLanguage();
+  const className = classNames(["jm-link", props.className]);
   const to = getPath(props.to);
-  console.log({to})
-  return <L {...props} to={to} />;
+  console.log({ to });
+  return <Component {...{ ...props, to, className }} />;
 };
+
+const Link = makeLink(L);
+export const NavLink = makeLink(NL);
 
 export default Link;

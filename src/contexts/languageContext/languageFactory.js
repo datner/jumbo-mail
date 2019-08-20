@@ -7,16 +7,11 @@ export const languages = ["en", "he", "rus", "it", "sp"];
 /**
  * language API factory.
  * has the capabilities to get and set the language.
- * exposed api:
- * setLanguage, 
- * getLanguage, 
- * getPath, 
- * getLanguages,
  *
  * @param {Object} obj - given to the function by the 'useApi' hook
  * @param {Object} obj.state - the state of a language context
  * @param {String} obj.state.lang - current language
- * @param {Function} obj.setState - a setting function  
+ * @param {Function} obj.setState - a setting function
  */
 export function languageFactory({ state, setState }) {
   // shorthand for setState(produce(draft => {...}))
@@ -31,6 +26,7 @@ export function languageFactory({ state, setState }) {
     if (lang === state.lang) return;
     if (languages.includes(lang))
       updateState(draft => {
+        draft.direction = lang === "he" ? "rtl" : "ltr";
         draft.lang = lang;
         localStorage.setItem("lang", lang);
       });
@@ -41,7 +37,7 @@ export function languageFactory({ state, setState }) {
   /**
    * helper function for easier reading.
    * concat the current language to the pathname
-   * @param {Object} obj 
+   * @param {Object} obj
    */
   const concatPath = obj => ({
     ...obj,
@@ -52,6 +48,8 @@ export function languageFactory({ state, setState }) {
    * @returns the current language
    */
   const getLanguage = () => state.lang;
+
+  const getDirection = () => state.direction;
 
   /**
    * @returns the supported languages
@@ -64,12 +62,16 @@ export function languageFactory({ state, setState }) {
    * @returns {String} a concatenated path with the current language
    */
   const getPath = (to = null) => {
-    if (to === null) return `/${state.lang}/`; 
+    if (to === null) return `/${state.lang}/`;
 
     // why would this happen?
-    if (Array.isArray(to)) return `/${state.lang}/`;
+    if (Array.isArray(to)) {
+      console.warn(
+        "languageFactory.getPath received an array, this should not happen"
+      );
+      return `/${state.lang}/`;
+    }
 
-    // check typeof 
     switch (typeof to) {
       case "object":
         return concatPath(to);
@@ -80,9 +82,9 @@ export function languageFactory({ state, setState }) {
         return `/${state.lang}${to}`;
     }
   };
-  
+
   //finally, return the API
-  return { setLanguage, getLanguage, getPath, getLanguages };
+  return { setLanguage, getLanguage, getPath, getLanguages, getDirection };
 }
 
 export default languageFactory;

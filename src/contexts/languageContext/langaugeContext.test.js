@@ -5,7 +5,8 @@ import languageFactory from "./languageFactory";
  * constant default value
  */
 const defaultValue = {
-  lang: "en"
+  lang: "en",
+  direction: "ltr"
 };
 
 /**
@@ -20,12 +21,17 @@ describe("languageContext", () => {
     expect(testLanguage.api.getLanguage()).toEqual("en");
   });
 
+  it("is the right direction", () => {
+    expect(testLanguage.api.getDirection()).toEqual("ltr");
+  });
+
   it("sets new language as he", () => {
     testLanguage.api.setLanguage("he");
     // need to rehydrate reference value after shallow state change because I am totally defeatist
     path = testLanguage.api.getPath;
 
     expect(testLanguage.api.getLanguage()).toEqual("he");
+    expect(testLanguage.api.getDirection()).toEqual("rtl");
   });
 
   it("returns correct pathname for given string", () => {

@@ -1,0 +1,14 @@
+@import "_constants.scss";
+
+.jm-link {
+  text-decoration: none;
+  color: $text-black;
+  transition: 0.2s;
+  &:hover {
+    letter-spacing: 5px;
+  }
+  &.active {
+    font-size: 1.2rem;
+    text-transform: uppercase;
+  }
+}
