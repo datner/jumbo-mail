@@ -1,0 +1,22 @@
+---
+to: src/contexts/<%= name %>Context/<%= name %>Factory.js
+---
+import { updater } from "utils/updater";
+
+/**
+ * <%= name %> API factory.
+ *
+ */
+export function <%= name %>Factory({ state, setState }) {
+  // shorthand for setState(produce(draft => {...}))
+  const updateState = updater(setState);
+
+  const setValue = value => 
+    updateState(draft => void (draft.value = value))
+
+  const getValue = () => state.value;
+
+  return { setValue, getValue };
+}
+
+export default <%= name %>Factory;

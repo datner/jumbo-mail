@@ -1,0 +1,21 @@
+---
+to: src/contexts/<%= name %>Context/<%= name %>Context.js
+---
+
+import { useStore } from "utils/useStore";
+import <%= name %>Factory from "./<%= name %>Factory";
+
+const initialState = () => ({
+    value: 0
+});
+
+const [<%= Name %>Provider, use<%= Name %>, with<%= Name %>] = useStore(
+  <%= name %>Factory,
+  initialState
+);
+
+export const <%= name %>InitState = initialState();
+
+export { use<%= Name %>, <%= Name %>Provider, with<%= Name %> };
+
+export default <%= Name %>Provider;
