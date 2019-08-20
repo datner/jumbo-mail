@@ -1,7 +1,7 @@
 import React from "react";
 import { BrowserRouter } from "react-router-dom";
 import "./App.scss";
-import LanguageProvider from "contexts/languageContext/languageContext";
+import LanguageProvider from "contexts/languageContext";
 import Router from "components/Router";
 import Page from "components/Page";
 

@@ -1,6 +1,6 @@
 import React from "react";
 import { Redirect, withRouter } from "react-router-dom";
-import { useLanguage } from "contexts/languageContext/languageContext";
+import { useLanguage } from "contexts/languageContext";
 
 /**
  * a mock-react component to check sync between the language in the url

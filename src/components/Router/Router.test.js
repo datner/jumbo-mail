@@ -1,7 +1,7 @@
 import React from 'react';
 import { shallow } from 'enzyme';
 import R from './Router';
-import { withLanguage } from 'contexts/languageContext/languageContext';
+import { withLanguage } from 'contexts/languageContext';
 
 const Router = withLanguage(R)
 

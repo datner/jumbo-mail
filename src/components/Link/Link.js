@@ -1,6 +1,6 @@
 import React from "react";
 import { Link as L } from "react-router-dom";
-import { useLanguage } from "contexts/languageContext/languageContext";
+import { useLanguage } from "contexts/languageContext";
 
 import "./Link.scss";
 

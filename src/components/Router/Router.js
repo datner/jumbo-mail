@@ -1,6 +1,6 @@
 import React from "react";
 import { Switch, Redirect, Route } from "react-router-dom";
-import { useLanguage } from "contexts/languageContext/languageContext";
+import { useLanguage } from "contexts/languageContext";
 
 const Router = () => {
   const {getPath, getLanguages} = useLanguage();
