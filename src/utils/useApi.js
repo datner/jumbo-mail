@@ -1,4 +1,4 @@
-import { useState } from "react";
+import { useState, useMemo } from "react";
 
 /**
  * creates an api with initial state
@@ -9,7 +9,11 @@ import { useState } from "react";
 export function useApi(apiFactory, initialState) {
   // hook the api to react state
   const [state, setState] = useState(findInitialState(initialState));
-  return apiFactory({ state, setState });
+  return useMemo(() => apiFactory({ state, setState }), [
+    state,
+    setState,
+    apiFactory
+  ]);
 }
 
 /**
@@ -18,7 +22,7 @@ export function useApi(apiFactory, initialState) {
  */
 function findInitialState(initialState) {
   if (typeof initialState === "function") return initialState();
-  else return initialState
+  else return initialState;
 }
 
 /**
@@ -31,9 +35,9 @@ export function createTestApi(apiFactory, defaultValue) {
   const state = findInitialState(defaultValue);
 
   /**
-   * to yield new states without reacts state re-render 
+   * to yield new states without reacts state re-render
    * trigger we need to make our own way to update
-   * the state. We use shallow copy and rehydrate the reference 
+   * the state. We use shallow copy and rehydrate the reference
    */
   const setState = updater => {
     const getNewState = () => {
