@@ -17,8 +17,8 @@ const Header = () => (
       <div className="links">
         <NavLink to="/send-email"> send email </NavLink>
         <NavLink to="/signup"> sign up </NavLink>
-        <a onClick={() => alert("lamo")}> log in </a>
-        <a to="/signup"> ⬛ </a>
+        <button onClick={() => alert("lamo")}> log in </button>
+        <button to="/signup"> <span role="img" aria-label="black">⬛</span> </button>
       </div>
     </div>
   </nav>
