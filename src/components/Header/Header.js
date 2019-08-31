@@ -1,8 +1,14 @@
 import React from "react";
 import "./Header.scss";
 import { NavLink } from "components/Link";
+import { useModal } from "contexts/modalContext";
+import LogIn from "components/LogIn";
 
-const Header = () => (
+const Header = () => {
+  const {setModal} = useModal();
+
+  const setLogin = () => setModal(LogIn);
+  return(
   <nav>
     <div className="header">
       <div className="links">
@@ -17,11 +23,11 @@ const Header = () => (
       <div className="links">
         <NavLink to="/send-email"> send email </NavLink>
         <NavLink to="/signup"> sign up </NavLink>
-        <button onClick={() => alert("lamo")}> log in </button>
+        <button onClick={setLogin}> log in </button>
         <button to="/signup"> <span role="img" aria-label="black">⬛</span> </button>
       </div>
     </div>
   </nav>
-);
+)};
 
 export default Header;
