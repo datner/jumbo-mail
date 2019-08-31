@@ -1,12 +1,12 @@
 ---
-to: src/components/<%= Name %>/<%= Name %>.js
+to: src/components/<%= h.inflection.classify(name) %>/<%= h.inflection.classify(name) %>.js
 ---
 import React from 'react'
-import './<%= Name %>.scss'
+import './<%= h.inflection.classify(name) %>.scss'
 
-const <%= Name %> = ({ children }) => (
+const <%= h.inflection.classify(name) %> = ({ children }) => (
   <div>{children}</div>
 )
 
-export default <%= Name %>
+export default <%= h.inflection.classify(name) %>
 

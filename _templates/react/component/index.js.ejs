@@ -1,4 +1,4 @@
 ---
-to: src/components/<%= Name %>/index.js
+to: src/components/<%= h.inflection.classify(name) %>/index.js
 ---
-export { default } from './<%= Name %>';
+export { default } from './<%= h.inflection.classify(name) %>';

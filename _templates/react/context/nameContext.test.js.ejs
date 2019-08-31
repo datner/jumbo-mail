@@ -15,15 +15,15 @@ const defaultValue = {
  * initialize the testApi in a non-react enviroment
  * Remember, we are only checking if it works, not if its in React
  */
-const test<%= Name %> = createTestApi(<%= name %>Factory, defaultValue);
+const test<%= h.inflection.classify(name) %> = createTestApi(<%= name %>Factory, defaultValue);
 describe("<%= name %>Context", () => {
   it("returns initial value", () => {
-    expect(test<%= Name %>.api.getValue()).toEqual(defaultValue.value);
+    expect(test<%= h.inflection.classify(name) %>.api.getValue()).toEqual(defaultValue.value);
   });
 
   it("can change value", () => {
-    test<%= Name %>.api.setValue(2);  
-    expect(test<%= Name %>.api.getValue()).toEqual(2);
+    test<%= h.inflection.classify(name) %>.api.setValue(2);  
+    expect(test<%= h.inflection.classify(name) %>.api.getValue()).toEqual(2);
   });
 
 });

@@ -9,13 +9,13 @@ const initialState = () => ({
     value: 0
 });
 
-const [<%= Name %>Provider, use<%= Name %>, with<%= Name %>] = useStore(
+const [<%= h.inflection.classify(name) %>Provider, use<%= h.inflection.classify(name) %>, with<%= h.inflection.classify(name) %>] = useStore(
   <%= name %>Factory,
   initialState
 );
 
 export const <%= name %>InitState = initialState();
 
-export { use<%= Name %>, <%= Name %>Provider, with<%= Name %> };
+export { use<%= h.inflection.classify(name) %>, <%= h.inflection.classify(name) %>Provider, with<%= h.inflection.classify(name) %> };
 
-export default <%= Name %>Provider;
+export default <%= h.inflection.classify(name) %>Provider;

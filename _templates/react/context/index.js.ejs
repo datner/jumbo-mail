@@ -3,8 +3,8 @@ to: src/contexts/<%= name %>Context/index.js
 ---
 export {
   default,
-  use<%= Name %>,
-  <%= Name %>Provider,
-  with<%= Name %>,
+  use<%= h.inflection.classify(name) %>,
+  <%= h.inflection.classify(name) %>Provider,
+  with<%= h.inflection.classify(name) %>,
   <%= name %>InitState
 } from "./<%= name %>Context";
