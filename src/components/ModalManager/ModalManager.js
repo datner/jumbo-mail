@@ -3,18 +3,12 @@ import ReactDOM from "react-dom";
 import "./ModalManager.scss";
 import { useModal } from "contexts/modalContext";
 
-const ModalManager = ({ children }) => {
-  const { getModal, setModal, closeModal } = useModal();
+const ModalManager = () => {
+  const { getModal } = useModal();
   console.log(getModal());
   const Modal = getModal();
-  if (Modal === null) return null;
   
-  return ReactDOM.createPortal(
-    <div className="modal__background">
-      <div className="modal__container">{children}</div>
-    </div>,
-    document.body
-  );
+  return Modal ? ReactDOM.createPortal(<Modal />, document.body) : null; 
 };
 
 export default ModalManager;
