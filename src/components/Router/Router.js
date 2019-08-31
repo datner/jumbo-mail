@@ -8,7 +8,7 @@ const Router = () => {
   return(
   <Switch>
     <Route exact path={`/${langs}/`} component={home} />
-    <Route exact path={`/${langs}/about`} component={about} />
+    <Route exact path={`/${langs}/why-go-pro`} component={about} />
     <Redirect from="*" to={getPath()} />
   </Switch>
 )};
