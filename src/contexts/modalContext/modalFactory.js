@@ -17,25 +17,29 @@ export function modalFactory({ state, setState }) {
 
   /**
    * sets a new modal, and allowing its preview
-   * @param {function | Object} modal - React component or object containing a component, props, and container for the modal 
+   * @param {function | Object} modal - React component or object containing a component, props, and container for the modal
    */
   const setModal = (modal = {}) =>
     updateState(draft => {
       if (typeof modal === "function") {
         draft.modal = modal;
-        draft.modal = DefaultContainer;
-        draft.props = {};
+        draft.modal = modalInitState.container;
+        draft.props = modalInitState.props;
       } else {
-        const { component = null, container = DefaultContainer, props = {} } = modal;
+        const {
+          component = null,
+          container = modalInitState.container,
+          props = modalInitState.props
+        } = modal;
         draft.modal = component;
         draft.props = props;
         draft.container = container;
       }
     });
 
-    /**
-     * returns either null or a wrapped modal with inserted props
-     */
+  /**
+   * returns either null or a wrapped modal with inserted props
+   */
   const getModal = () =>
     state.modal
       ? () => state.container({ children: state.modal(state.props) })
