@@ -23,6 +23,8 @@ export function modalFactory({ state, setState }) {
     updateState(draft => {
       if (typeof modal === "function") {
         draft.modal = modal;
+        draft.modal = DefaultContainer;
+        draft.props = {};
       } else {
         const { component = null, container = DefaultContainer, props = {} } = modal;
         draft.modal = component;
