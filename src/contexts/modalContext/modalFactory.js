@@ -1,5 +1,6 @@
 import { updater } from "utils/updater";
 import DefaultContainer from "components/ModalManager/DefaultContainer";
+import { modalInitState } from "./modalContext";
 
 /**
  * modal API factory.
@@ -9,8 +10,15 @@ export function modalFactory({ state, setState }) {
   // shorthand for setState(produce(draft => {...}))
   const updateState = updater(setState);
 
+  /**
+   * sets modal to be null, effectively closing it
+   */
   const closeModal = () => updateState(draft => void (draft.modal = null));
 
+  /**
+   * sets a new modal, and allowing its preview
+   * @param {function | Object} modal - React component or object containing a component, props, and container for the modal 
+   */
   const setModal = (modal = {}) =>
     updateState(draft => {
       if (typeof modal === "function") {
@@ -23,6 +31,9 @@ export function modalFactory({ state, setState }) {
       }
     });
 
+    /**
+     * returns either null or a wrapped modal with inserted props
+     */
   const getModal = () =>
     state.modal
       ? () => state.container({ children: state.modal(state.props) })
