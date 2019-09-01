@@ -5,7 +5,7 @@ import { useModal } from "contexts/modalContext";
 
 const ModalManager = () => {
   const { getModal } = useModal();
-  console.log(getModal());
+
   const Modal = getModal();
   
   return Modal ? ReactDOM.createPortal(<Modal />, document.body) : null; 
