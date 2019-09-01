@@ -38,5 +38,18 @@ nav {
         }
       }
     }
+
+    .languages {
+      position: absolute;
+      text-align: center;
+      margin-top: -3px;
+      padding: 6px 12px;
+      right: 50px;
+      top: 0;
+      font-size: 15px;
+      background: grey;
+      border-bottom-left-radius: 15px;
+      border-bottom-right-radius: 15px;
+    }
   }
 }
