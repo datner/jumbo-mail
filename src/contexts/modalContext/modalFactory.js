@@ -1,5 +1,4 @@
 import { updater } from "utils/updater";
-import DefaultContainer from "components/ModalManager/DefaultContainer";
 import { modalInitState } from "./modalContext";
 
 /**
