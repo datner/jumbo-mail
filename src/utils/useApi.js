@@ -45,9 +45,10 @@ export function createTestApi(apiFactory, defaultValue) {
       else return updater;
     };
     ref.api = apiFactory({ state: getNewState(), setState });
+    ref.state = getNewState();
   };
 
-  const ref = { api: apiFactory({ state, setState }) };
+  const ref = { api: apiFactory({ state, setState }), state };
 
   return ref;
 }
