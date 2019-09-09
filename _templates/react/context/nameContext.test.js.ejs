@@ -1,8 +1,8 @@
 ---
-to: src/contexts/<%= name %>Context/<%= name %>Context.test.js
+to: src/contexts/<%= h.inflection.camelize(name, true) %>Context/<%= h.inflection.camelize(name, true) %>Context.test.js
 ---
 import { createTestApi } from "utils/useApi";
-import <%= name %>Factory from "./<%= name %>Factory";
+import <%= h.inflection.camelize(name, true) %>Factory from "./<%= h.inflection.camelize(name, true) %>Factory";
 
 /**
  * constant default value
@@ -12,11 +12,11 @@ const defaultValue = {
 };
 
 /**
- * initialize the testApi in a non-react enviroment
+ * initialize the testApi in a non-react environment
  * Remember, we are only checking if it works, not if its in React
  */
-const test<%= h.inflection.classify(name) %> = createTestApi(<%= name %>Factory, defaultValue);
-describe("<%= name %>Context", () => {
+const test<%= h.inflection.classify(name) %> = createTestApi(<%= h.inflection.camelize(name, true) %>Factory, defaultValue);
+describe("<%= h.inflection.camelize(name, true) %>Context", () => {
   it("returns initial value", () => {
     expect(test<%= h.inflection.classify(name) %>.api.getValue()).toEqual(defaultValue.value);
   });
