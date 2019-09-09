@@ -12,7 +12,7 @@ export function useStore(apiFactory, initialState) {
   const StoreContext = createContext();
 
   const StoreProvider = ({ children }) => {
-    let store = useApi(apiFactory, initialState);
+    const store = useApi(apiFactory, initialState);
 
     return (
       <StoreContext.Provider value={store}>{children}</StoreContext.Provider>
