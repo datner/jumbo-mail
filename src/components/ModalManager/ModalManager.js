@@ -7,8 +7,9 @@ const ModalManager = () => {
   const { getModal } = useModal();
 
   const Modal = getModal();
-  
-  return Modal ? ReactDOM.createPortal(<Modal />, document.body) : null; 
+
+  return Modal ? ReactDOM.createPortal(<Modal />, document.body) : null;
 };
 
 export default ModalManager;
+export { default as DefaultContainer } from "./DefaultContainer";
