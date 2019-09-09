@@ -9,7 +9,6 @@ const makeLink = Component => props => {
   const { getPath } = useLanguage();
   const className = classNames(["jm-link", props.className]);
   const to = getPath(props.to);
-  console.log({ to });
   return <Component {...{ ...props, to, className }} />;
 };
 
