@@ -22,7 +22,7 @@ export function modalFactory({ state, setState }) {
     updateState(draft => {
       if (typeof modal === "function") {
         draft.modal = modal;
-        draft.modal = modalInitState.container;
+        draft.container = modalInitState.container;
         draft.props = modalInitState.props;
       } else {
         const {

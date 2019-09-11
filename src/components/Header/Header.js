@@ -1,9 +1,10 @@
 import React from "react";
-import "./Header.scss";
-import { NavLink } from "components/Link";
-import { useModal } from "contexts/modalContext";
 import Login from "components/Login";
 import LanguagePicker from "./LanguagePicker";
+import { NavLink } from "components/Link";
+import { useModal } from "contexts/modalContext";
+
+import "./Header.scss";
 
 const Header = () => {
   const { setModal } = useModal();

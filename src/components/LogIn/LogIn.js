@@ -1,9 +1,10 @@
 import React from 'react'
+
 import './Login.scss'
 
-const LogIn = () => (
-  <div>Hello I am a login screen</div>
+const Login = ({ children }) => (
+  <div>{children}</div>
 )
 
-export default LogIn
+export default Login
 

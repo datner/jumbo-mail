@@ -1,5 +1,6 @@
 import { createTestApi } from "utils/useApi";
 import languageFactory from "./languageFactory";
+import { languageInitState } from "./languageContext";
 
 /**
  * constant default value
@@ -13,7 +14,7 @@ const defaultValue = {
  * initialize the testApi in a non-react enviroment
  * Remember, we are only checking if it works, not if its in React
  */
-const testLanguage = createTestApi(languageFactory, defaultValue);
+const testLanguage = createTestApi(languageFactory, languageInitState);
 let path = testLanguage.api.getPath;
 
 describe("languageContext", () => {

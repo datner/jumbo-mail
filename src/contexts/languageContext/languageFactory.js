@@ -2,7 +2,7 @@ import { updater } from "utils/updater";
 
 // Available languages
 // TODO: Fetch possible languages from the server
-export const languages = ["en", "he", "rus", "it", "sp"];
+export const languages = ["en", "he", "ru", "it", "sp"];
 
 /**
  * language API factory.

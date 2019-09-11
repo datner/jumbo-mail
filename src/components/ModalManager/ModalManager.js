@@ -1,13 +1,13 @@
 import React from "react";
 import ReactDOM from "react-dom";
-import "./ModalManager.scss";
 import { useModal } from "contexts/modalContext";
+
+import "./ModalManager.scss";
 
 const ModalManager = () => {
   const { getModal } = useModal();
-
+  
   const Modal = getModal();
-
   return Modal ? ReactDOM.createPortal(<Modal />, document.body) : null;
 };
 
