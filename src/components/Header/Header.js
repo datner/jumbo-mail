@@ -1,5 +1,5 @@
 import React from "react";
-import Login from "components/Login";
+import Login from "components/LogIn";
 import LanguagePicker from "./LanguagePicker";
 import { NavLink } from "components/Link";
 import { useModal } from "contexts/modalContext";

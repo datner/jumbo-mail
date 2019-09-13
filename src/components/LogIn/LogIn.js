@@ -1,6 +1,6 @@
 import React from 'react'
 
-import './Login.scss'
+import './LogIn.scss'
 
 const Login = ({ children }) => (
   <div>{children}</div>
